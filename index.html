@@ -1,0 +1,66 @@
+<!doctype html>
+<html lang="en">
+  
+ <head>
+    <title>forma</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta http-equiv="x-ua-compatible" content="ie-edge">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="css/style.css">
+
+    <!-- Yandex.Metrika counter --> <script type="text/javascript" > (function (d, w, c) { (w[c] = w[c] || []).push(function() { try { w.yaCounter47505532 = new Ya.Metrika2({ id:47505532, clickmap:true, trackLinks:true, accurateTrackBounce:true, webvisor:true, trackHash:true }); } catch(e) { } }); var n = d.getElementsByTagName("script")[0], s = d.createElement("script"), f = function () { n.parentNode.insertBefore(s, n); }; s.type = "text/javascript"; s.async = true; s.src = "https://mc.yandex.ru/metrika/tag.js"; if (w.opera == "[object Opera]") { d.addEventListener("DOMContentLoaded", f, false); } else { f(); } })(document, window, "yandex_metrika_callbacks2"); </script> <noscript><div><img src="https://mc.yandex.ru/watch/47505532" style="position:absolute; left:-9999px;" alt="" /></div></noscript> <!-- /Yandex.Metrika counter -->
+ </head>
+  
+ <body>
+  
+
+    <div class="formes">
+        <div class="form-container">
+            <div class="picture">
+                <img src="img/dich.png" alt="">
+            </div>
+            <div class="forma">
+                <h2>Сохрани свой аккаунт</h2>
+                <p>Получи бесплатно большое количество форм, вопросов и ответов</p>
+                <form onsubmit="yaCounter47505532.reachGoal('form')" id="form" action="#" method="get">
+                   <input type="hidden" name="whatever" value="Mail_form">
+                    <input recuired minlength="2" name="name" id="name" type="text" placeholder="имя или никнейм">
+                   
+                    <input recuired name="email" id="email" type="email" placeholder="Email">
+                   
+                    <input recuired minlength="6" name="password" id="password" type="text" placeholder="пароль"><p>
+                   
+                    <button type="submit" id="button">Сохранить</button></p>
+                    <div class="have">
+                    <p>Уже есть аккаунт?<a href="#">Войти</a></p></div>   
+                </form>
+            </div>
+        </div>
+    </div>
+   
+
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js" integrity="sha384-vFJXuSJphROIrBnz7yo7oB41mKfc8JzQZiCq4NCceLEaO4IHwicKwpJf9c9IpFgh" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js" integrity="sha384-alpBpkh1PFOepccYVYDB4do5UnbKysX5WZXm3XxPqe5iKTfUKjNkCk9SaVuEZflJ" crossorigin="anonymous"></script>
+    <script src="js/jquery.validate.min.js"></script>
+  <script>
+     $('#form').validate();
+
+$(document).ready(function(){
+    $("#form").submit(function() { //устанавливаем событие отправки для формы с id=form
+            var form_data = $(this).serialize(); //собераем все данные из формы
+            $.ajax({
+            type: "POST", //Метод отправки
+            url: "mail.php", //путь до php фаила отправителя
+            data: form_data,
+            success: function() {
+                   //код в этом блоке выполняется при успешной отправке сообщения
+                   alert("Ваше сообщение отпрвлено!");
+            });
+    });
+});    
+
+  </script>
+</body>
+</html>
